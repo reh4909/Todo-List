@@ -39,8 +39,8 @@ const taskCompleted = (e, id) => {
 };
 return (
     <div className="todo">
-        <input type="text" name="text" id="text"  onChange={(e) => handleChange(e)} placeholder="Title..."/>
-        <button className="add-btn" onClick={AddTask}> Add </button>
+        <input type="text" name="text" id="text"  onChange={(e) => handleChange(e)} placeholder="Add a Todo"/>
+        <button className="add-btn" onClick={AddTask}> ADD </button>
         <br />
         {taskList !== [] ? (
             <ul>

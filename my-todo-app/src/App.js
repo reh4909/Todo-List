@@ -1,12 +1,56 @@
-import React from 'react';
-import TodoApp from "./Components/TodoApp";
+import React, {useState,useEffect} from 'react';
+import "./App.css";
+import Form from "./components/Form";
+import TodoList  from "./components/TodoList";
 
-function App() {
+
+
+function App(){
+
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  //UseEffects
+  useEffect(() => {
+    filterHandler();
+  },[todos,status]);
+
+  const filterHandler = () => {
+    switch(status){
+      case 'completed':
+        setFilteredTodos(todos.filter(todo => todo.completed === true))
+        break;
+        case 'uncompleted':
+          setFilteredTodos(todos.filter(todo => todo.completed === false))
+        break;
+        default:
+          setFilteredTodos(todos);
+          break;
+    }
+};
+
   return (
-  <div className="App">
-  <span className="title">Todo-List</span> <br />
-      <TodoApp />
-</div>
-);
+    <div className="App">
+      <header>
+        <h1>LGM Todo List</h1>
+      </header>
+      <Form
+      inputText = {inputText}
+      todos={todos}
+      setTodos={setTodos}
+      setInputText={setInputText}
+      setStatus={setStatus}
+      />
+      <TodoList
+      setTodos={setTodos}
+      todos={todos}
+      filteredTodos={filteredTodos}  
+      />
+    </div>
+  );
 }
+
+
 export default App;

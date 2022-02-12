@@ -8,7 +8,7 @@ body {
   }
 
   html{
-  background-image: linear-gradient(to right, rgb(209, 122, 209), rgb(243, 149, 165));
+  background: linear-gradient(90deg, rgba(48,16,255,1) 0%, rgba(100,115,255,1) 100%);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,7 +27,7 @@ code {
 .App .title {
   font-size: 5rem;
   padding: 10px 20px 0px 20px;
-  background-color: rgb(250, 201, 209);
+  background-color: rgb(245, 200, 225);
   border-radius: 10px;
   border: 2px solid black;
   align-self: center;
